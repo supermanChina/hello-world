@@ -3,6 +3,9 @@
  */
 package com.study.fastjson.demo;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,6 +49,14 @@ public class FastJsonDemo {
 		Group group2 = JSON.parseObject(jsonString, Group.class);
 
 		System.out.println(group2);
+
+		try {
+			JSON.writeJSONString(new FileWriter(new File(
+					"src/main/resource/group.json")), group2);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
